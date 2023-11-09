@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TODO App</string>
+    <string name="navigation_back_button">Back</string>
+    <string name="add_notes_button_label">Add Note</string>
+    <string name="no_notes_label">No notes to show</string>
+    <string name="note_edit_button">Edit</string>
+    <string name="note_delete_button">Delete</string>
+    <string name="note_form_title_label">Note details</string>
+    <string name="note_form_button_label">Submit</string>
+    <string name="note_field_title_label">Title</string>
+    <string name="note_field_description_label">Description</string>
+</resources>
