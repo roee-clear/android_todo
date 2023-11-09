@@ -29,7 +29,8 @@ import com.example.todoapp.ui.components.NoteField
 fun FormScreen(
     note: Note?,
     onSubmitPress: () -> Unit,
-    viewModel: TodoViewModel,
+    updateNote: (note: Note) -> Unit,
+    addNote: (note: Note) -> Unit,
     modifier: Modifier
 ) {
     var titleText by remember { mutableStateOf(note?.title ?: "") }
@@ -78,9 +79,9 @@ fun FormScreen(
                         override val description = descriptionText
                     })
                     if (note != null) {
-                        viewModel.updateNote(noteDetails)
+                        updateNote(noteDetails)
                     } else {
-                        viewModel.addNote(noteDetails)
+                        addNote(noteDetails)
                     }
 
                     onSubmitPress()

@@ -30,7 +30,7 @@ import com.example.todoapp.ui.TodoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TodoApp(
+fun TodoApplication(
     viewModel: TodoViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
@@ -58,7 +58,9 @@ fun TodoApp(
             composable(route = TodoScreen.Start.name) {
                 NotesScreen(
                     navigateToNoteFormScreen = { navController.navigate(TodoScreen.Form.name) },
-                    viewModel,
+                    uiState.notes,
+                    { viewModel.selectNote(it) },
+                    { viewModel.deleteNote(it) },
                     Modifier
                 )
             }
@@ -71,7 +73,8 @@ fun TodoApp(
 
                         navController.popBackStack()
                     },
-                    viewModel,
+                    updateNote = {viewModel.updateNote(it)},
+                    addNote = {viewModel.addNote(it)},
                     modifier = Modifier
                 )
             }
